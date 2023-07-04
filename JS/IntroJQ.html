@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <style>
+       #loader { margin:10px 0 0 36px; }
+#loader span {
+display:block; width:6px; float:left; margin-right:6px;
+border:1px solid #336633; position:relative;
+background-color:#ccffcc;
+}
+#loader .bar-0 { height:15px; bottom:-20px; }
+#loader .bar-1 { height:25px; bottom:-10px; }
+#loader .bar-2 { height:35px; margin-right:0; }
+   </style>
+</head>
+
+<body>
+    <h1></h1>
+    <button id="go">Initiate the action</button>
+    <script>
+        $(document).ready(function () {
+            $('h1').text('Hello World...');
+            var loader = $("<div></div>", {
+                id: "loader"
+            }).css("display", "none"),
+                bar = $("<span></span>").css("opacity", 0.2),
+                loadingInterval = null;
+            for (var x = 0; x < 3; x++) {
+                bar.clone().addClass("bar-" + x).appendTo(loader);
+            }
+            loader.insertAfter("#go");
+            function runLoader() {
+                var firstBar = loader.children(":first"),
+                    secondBar = loader.children().eq(1),
+                    thirdBar = loader.children(":last");
+                firstBar.fadeTo("fast", 1, function () {
+                    firstBar.fadeTo("fast", 0.2, function () {
+                        secondBar.fadeTo("fast", 1, function () {
+                            secondBar.fadeTo("fast", 0.2, function () {
+                                thirdBar.fadeTo("fast", 1, function () {
+                                    thirdBar.fadeTo("fast", 0.2);
+                                });
+                            });
+                        });
+                    });
+                });
+            };
+            $("#go").toggle(function () {
+                loader.show();
+                loadingInterval = setInterval(function () {
+                    runLoader();
+                }, 1200);
+            }, function () {
+                loader.hide();
+                clearInterval(loadingInterval);
+            });
+        });
+    </script>
+</body>
+
+</html>
+/*
+Over the course of this book, we'll look at every
+animation method that the library contains in detail. These methods are listed below:
+  animate()
+  clearQueue()
+  delay()
+  dequeue()
+  fadeIn()
+  fadeout()
+  fadeTo()
+  fadeToggle()
+  hide()
+  queue()
+  show()
+  slideDown()
+  slideToggle()
+  slideUp()
+  stop()
+  toggle()
+*/

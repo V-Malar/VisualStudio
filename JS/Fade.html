@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery fading</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- In this example, we will see how to:
+  Disable standard CSS hovers when JavaScript is enabled
+  Add the additional HTML markup required for the animations
+  Implement attractive fadeIn() animations triggered by hovering -->
+    <!-- 
+      In this example, we'll look at the following aspects of using fadeOut() :
+  Hiding an element with the fadeOut() method
+  Using a numerical argument to control the duration
+  Running additional code once the animation completes
+   -->
+    <link rel="stylesheet" href="fade.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="purecss">
+            <li><a href="#" title="Home">Home</a></li>
+            <li><a href="#" title="Articles">Articles</a></li>
+            <li><a href="#" title="Code">Code</a></li>
+            <li><a href="#" title="Demos">Demos</a></li>
+            <li class="last">
+                <a href="#" title="Portfolio">Portfolio</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="dialog">
+        <header>A dialog box of some description</header>
+        Lorem ipsum etc, etc.
+        <footer><button>Ok</button></footer>
+    </div>
+
+    <form>
+        <label for="name">Enter your name:
+            <input id="name" name="name" type="text">
+            <span id="help">HELP</span>
+            <span id="helpText">Your name. You know, the thing that people
+                call you by</span>
+        </label>
+    </form>
+    <script>
+        // FADE IN
+        $(document).ready(function () {
+            var ul = $("nav ul");
+            ul.removeClass("purecss");
+            ul.find("a").each(function () {
+                var a = $(this).css({ color: 'grey', 'font-size': '20px', 'font-weight': 'bolder' });
+                a.append("<span>" + a.text() + "</span>");
+            });
+            ul.find("a").hover(function () {
+                $(this).find("span").fadeIn(1000, "swing").css({ color: 'red', 'font-size': '20px', 'font-weight': 'bolder' });
+            }, function () {
+                $(this).find("span").hide();
+            });
+
+            //FADE OUT
+            function callback_fade_out() {
+                $(this).remove();
+            }
+            $("#dialog button").click(function () {
+                $("#dialog").fadeOut(5000, callback_fade_out);
+                alert("External function removed the #dialog");
+            });
+
+            //FADE TOGGLE
+            $("#helpText"), $("label").css({'color':'white'});
+            // $("label").css('color', 'red');
+            $("#help").click(function () {
+                $("#helpText").fadeToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
+<!--
+fadeIn()
+fadeOut()
+fadeTo()
+fadeToggle()
+show()
+hide()
+toggle()
+
+In their simplest forms, these methods can be used without any additional configuration.
+We can simply call the methods on any collection of selected elements without using
+any arguments:
+jQuery( elements ).fadeIn();
+jQuery( elements ).fadeOut();
+jquery( elements ).fadeToggle();
+When no arguments are provided, the animations will have the default duration of 400
+milliseconds and the default easing of swing .
+Configuring the animations with arguments
+With arguments, the fading methods may take the following form, (square brackets denote
+optional arguments):
+jQuery( elements ).fadeIn([ duration ], [ easing ], [ callback ]);
+jQuery( elements ).fadeOut([ duration ], [ easing ], [ callback ]);
+jQuery( elements ).fadeToggle([ duration ], [ easing ], [ callback );
+-->

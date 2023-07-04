@@ -1,0 +1,116 @@
+body {
+    text-align: center;
+    background-color: #333;
+}
+
+nav {
+    display: inline-block;
+    font: normal 18px "Nimbus Sans L", "Helvetica Neue", "Franklin Gothic Medium", "Sans-serif";
+    border: "2px solid #aaa";
+    border-radius: "7px";
+    border-radius: 7px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    float: left;
+    border-right: 2px solid #aaa;
+}
+
+nav a {
+    display: block;
+    padding: 10px 20px;
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    background-color: #eee;
+    border: 1px solid #fff;
+}
+
+nav span {
+    display: none;
+    width: 100%;
+    height: 33px;
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ccc;
+}
+
+nav .purecss a:hover {
+    background-color: #ccc;
+}
+
+nav li:first-child a {
+    border-radius: 7px 0 0 7px;
+    border-top-left-radius: 17px;
+    border-bottom-left-radius: 17px;
+    border-radius: 7px 0 0 7px;
+}
+
+nav li:first-child span {
+    border-radius: 0 7px 7px 0;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-radius: 0 7px 7px 0;
+}
+
+nav li.last {
+    border-right: none;
+}
+
+nav li.last a {
+    border-radius: 0 7px 7px 0;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-radius: 0 7px 7px 0;
+}
+
+nav li.last span {
+    border-radius: 0 7px 7px 0;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-radius: 0 7px 7px 0;
+}
+#dialog {
+    background-color:#fff; width:300px; padding:10px;
+    font:normal 14px "Nimbus Sans L", "Helvetica Neue", "FranklinGothic Medium", Sans-serif;
+    border:1px solid #aaa; -moz-border-radius:7px;
+    border-radius:7px; border-radius:7px;
+    box-shadow:2px 2px 5px #000;
+    box-shadow:2px 2px 5px #000;
+    box-shadow:2px 2px 5px #000;
+    }
+    #dialog:after {
+    content:""; height:0; display:block; clear:both;
+    visibility:hidden;
+    }
+    #dialog header {
+    display:block; padding-bottom:5px; margin-bottom:10px;
+    font-weight:bold; font-size:16px; border-bottom:1px solid #aaa;
+    }
+    #dialog footer {
+    display:block; padding-top:10px; margin-top:10px;
+    border-top:1px solid #aaa;
+    }
+    #dialog button { float:right; }
+    form { width:280px; margin:100px auto; position:relative; }
+input { margin-left:5px; }
+#help {
+display:block; width:16px; height:16px; margin-top:3px;
+float:right; cursor:pointer;
+background:url(../img/help.png) no-repeat;
+}
+#helpText {
+display:none; width:100px; height:75px; padding:12px 18px;
+position:absolute; left:115px; top:-90px;
+font:normal 12px "Nimbus Sans L", "Helvetica Neue",
+"Franklin Gothic Medium", Sans-serif;
+background:url(../img/bubble.png) no-repeat;
+}
